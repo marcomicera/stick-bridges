@@ -60,11 +60,8 @@
 
 		<footer>
 			<p>
+				A game by <a href="https://marcomicera.github.io/">Marco Micera</a> - 
 				<a href="./html/howtoplay.html">How to play</a>
-				 - 
-				<a href="./html/terms.html">Terms of Service</a>
-				 - 
-				<a href="./html/privacy.html">Privacy</a>
 			</p>
 		</footer>
     </body>

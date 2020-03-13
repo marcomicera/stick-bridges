@@ -128,25 +128,20 @@ function createFooter()
 	var footerParagraph = document.createElement('p');
 	footer.appendChild(footerParagraph);
 
+	footerParagraph.appendChild(document.createTextNode("A game made by "));
+
+	var myHomePage = document.createElement('a');
+	myHomePage.setAttribute("href", "https://marcomicera.github.io/");
+	var myHomePageLinkText = document.createTextNode("Marco Micera");
+	myHomePage.appendChild(myHomePageLinkText);
+	footerParagraph.appendChild(myHomePage);
+	footerParagraph.appendChild(document.createTextNode(" - "));
+
 	var howtoplayLink = document.createElement('a');
 	howtoplayLink.setAttribute("href", "./html/howtoplay.html");
 	var howtoplayLinkText = document.createTextNode("How to play");
 	howtoplayLink.appendChild(howtoplayLinkText);
 	footerParagraph.appendChild(howtoplayLink);
-	footerParagraph.appendChild(document.createTextNode(" - "));
-
-	var termsLink = document.createElement('a');
-	termsLink.setAttribute("href", "./html/terms.html");
-	var termsLinkText = document.createTextNode("Terms of Service");
-	termsLink.appendChild(termsLinkText);
-	footerParagraph.appendChild(termsLink);
-	footerParagraph.appendChild(document.createTextNode(" - "));
-
-	var privacyLink = document.createElement('a');
-	privacyLink.setAttribute("href", "./html/privacy.html");
-	var privacyLinkText = document.createTextNode("Privacy");
-	privacyLink.appendChild(privacyLinkText);
-	footerParagraph.appendChild(privacyLink);
 
 	document.body.appendChild(footer);
 }
