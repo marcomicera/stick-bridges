@@ -2,5 +2,5 @@
 	$dbHostname = "localhost";
 	$dbUsername = "root"; 
 	$dbPassword = ""; 
-	$dbName = "stick_bridges";	
+	$dbName = "my_stb";	
 ?>
