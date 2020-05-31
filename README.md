@@ -9,3 +9,8 @@ Made as a University assignment during my Bachelor of Science in Computer Engine
 
 ## Now online
 Visit [**stb.altervista.org**](http://stb.altervista.org)!
+
+## Start playing locally
+```
+$ php -S localhost:8000
+```
