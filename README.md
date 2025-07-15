@@ -1,6 +1,6 @@
 # Stick Bridges
 
-<a href="http://stb.altervista.org" target="_blank">
+<a href="https://marcomicera.github.io/stick-bridges" target="_blank">
 <div style="text-align:center"><img src="docs/css/images/screenshots/game.png" /></div>
 </a>
 
@@ -8,7 +8,7 @@ Online video game inspired by [Stick Hero](https://itunes.apple.com/us/app/stick
 
 # Play it
 
-- [**Online**](http://stb.altervista.org)
+- [**Online**](https://marcomicera.github.io/stick-bridges)
 - Locally:
     ```shell script
     open public/index.html
