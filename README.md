@@ -5,9 +5,11 @@
 </a>
 
 Online video game inspired by [Stick Hero](https://itunes.apple.com/us/app/stick-hero/id918338898?mt=8).
-[Play it online](http://stb.altervista.org)!
 
-## Start playing locally
-```shell script
-php -S localhost:8000
-```
+# Play it
+
+- [**Online**](http://stb.altervista.org)
+- Locally:
+    ```shell script
+    open index.html
+    ```
