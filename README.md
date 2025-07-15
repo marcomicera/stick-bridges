@@ -11,5 +11,5 @@ Online video game inspired by [Stick Hero](https://itunes.apple.com/us/app/stick
 - [**Online**](http://stb.altervista.org)
 - Locally:
     ```shell script
-    open index.html
+    open public/index.html
     ```
