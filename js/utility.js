@@ -4,11 +4,6 @@ var ENTER_KEY = "13";
 
 var DEV_MODE = false; //se uguale a true, il gioco diventa estremamente facile
 
-function setCanPressEnterVariable(data)
-{
-	canPressEnter = data;
-}
-
 //ridimensiona il testo di un elemento rispetto all'altezza della finestra
 function updateTextSize(element, size)
 {

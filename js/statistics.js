@@ -1,17 +1,3 @@
-var highscoreArray = null;
-
-function createHighscoreArray(data)
-{
-	highscoreArray = JSON.parse(data);
-}
-
-var personalHighscore = null;
-
-function getPersonalHighscore(data)
-{
-	personalHighscore = data;
-}
-
 function Statistics()
 {
 	this.score = 0;
@@ -50,8 +36,7 @@ Statistics.prototype.updateScore =
 Statistics.prototype.gameOver =
 	function()
 	{
-		if(game.statistics.score > personalHighscore) AjaxManager.prepareSetNewHighscore();
-			else AjaxManager.prepareHighscoreTable();
+		gameOverPopup(this.score);
 	}
 
 Statistics.prototype.restart =

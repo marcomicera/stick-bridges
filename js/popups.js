@@ -4,8 +4,6 @@ var closeHandler = close.bind(this);
 var resizableTextHandler = null; //per il titolo
 var resizableTextHandler2 = null; //per eventuale sottotitolo
 
-var canPressEnter = 0; //per iniziare il gioco
-
 function welcomePopup()
 {
 	//inizializzazione variabili globali
@@ -29,8 +27,6 @@ function welcomePopup()
 
 function loginPopup(data)
 {
-	canPressEnter = 0;
-
 	//eliminazione di vari elementi
 	if(document.getElementsByClassName("response")[0] != null) popup.removeChild(document.getElementsByClassName("response")[0])
 	if(document.getElementsByClassName("form")[0] != null) popup.removeChild(document.getElementsByClassName("form")[0]);
@@ -56,7 +52,6 @@ function updatePopup(data)
 	{
 		popup.removeChild(document.getElementsByClassName("form")[0]);
 		popup.removeChild(document.getElementsByClassName("tools")[0]);
-		canPressEnter = 1;
 	}
 
 	createResponseMessage(data);
@@ -75,10 +70,8 @@ function registerPopup()
 	createRegisterToolsDiv();
 }
 
-function gameOverPopup(data)
+function gameOverPopup(score)
 {
-	var highscoreArray = JSON.parse(data);
-
 	//creazione popup
 	popup = document.createElement('div');
 	popup.setAttribute('class', "popup");
@@ -96,36 +89,22 @@ function gameOverPopup(data)
 	resizableTextHandler = function() { updateTextSize(gameOverText, gameOverFontSize); }
 	window.addEventListener('resize', resizableTextHandler, false);
 
-	//scritta "Your/New highscore"
-	var yourHighscoreText = document.createElement('h4');
-	yourHighscoreText.setAttribute("class", "resizable_text");
-	var yourHighscoreTextNode = null;
-	if(game.statistics.score > personalHighscore)
-	{
-		yourHighscoreTextNode = document.createTextNode("New highscore: " + game.statistics.score);
-		yourHighscoreText.setAttribute("id", "new_highscore_text");
-	}
-		else
-		{
-			yourHighscoreTextNode = document.createTextNode("Your highscore: " + personalHighscore);
-			yourHighscoreText.setAttribute("id", "your_highscore_text");
-		}
-	yourHighscoreText.appendChild(yourHighscoreTextNode);
-	var yourHighscoreFontSize = 4;
-	updateTextSize(yourHighscoreText, yourHighscoreFontSize);
-	resizableTextHandler2 = function() { updateTextSize(yourHighscoreText, yourHighscoreFontSize); }
+	//scritta "Your score"
+	var yourScoreText = document.createElement('h4');
+	yourScoreText.setAttribute("class", "resizable_text");
+	yourScoreText.setAttribute("id", "your_score_text");
+	var yourScoreTextNode = document.createTextNode("Your score: " + score);
+	yourScoreText.appendChild(yourScoreTextNode);
+	var yourScoreFontSize = 4;
+	updateTextSize(yourScoreText, yourScoreFontSize);
+	resizableTextHandler2 = function() { updateTextSize(yourScoreText, yourScoreFontSize); }
 	window.addEventListener('resize', resizableTextHandler2, false);
 
 	popup.appendChild(gameOverText);
-	popup.appendChild(yourHighscoreText);
-
-	createHighscoreTable(highscoreArray);
+	popup.appendChild(yourScoreText);
 
 	createResponseMessage("Press ENTER to play again!");
 
-	//logout link, delete account link
-	createGameOverToolsDiv();
-	
 	createFooter();
 
 	fadeIn(popup, 0.01, 1, 10);
@@ -152,7 +131,7 @@ function close(event)
 	event = (!event) ? window.event : event; //evento undefined su I.E.
 	var key = (event.which != null) ? event.which : event.keyCode; //event.which su Firefox
 
-	if(key == ENTER_KEY && canPressEnter)
+	if(key == ENTER_KEY)
 	{
 		//removeEventListener
 		window.removeEventListener('keypress', closeHandler, false);
@@ -165,7 +144,6 @@ function close(event)
 
 		//creazione di un nuovo gioco
 		game = new Game();
-		AjaxManager.preparePersonalHighscore(); //recupero dell'highscore personale
 		begin(); //preparazione del campo da gioco
 
 		fadeIn(document.body, 0.01, 1, 4);

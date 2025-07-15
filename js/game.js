@@ -5,9 +5,6 @@ function intro()
 	//sfondo
 	document.body.style.backgroundImage = "url(css/images/bg/bg" + Math.floor(Math.random()*12) + ".jpg)";
 
-	//se l'utente e' gia' loggato puo' premere ENTER per iniziare il gioco
-	AjaxManager.isLogged();
-
 	welcomePopup();
 }
 

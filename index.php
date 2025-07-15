@@ -1,10 +1,3 @@
-<?php
-    session_start();
-	include "./php/util/session.php";
-?>
-
-<!-- Manuale utente disponibile in ./html/howtoplay.html -->
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -36,26 +29,7 @@
         <div class="popup" id="welcome_popup">
 			<h1 id="logo">Stick Bridges</h1>
 
-			<?php
-				if(!isLogged()) echo	'<div class="form" id="login_form">
-											<form method="post">
-												<label>Username: <input type="text" id="username" name="username"></label>
-												<label>Password: <input type="password" id="password" name="password"></label>
-												<button type="button" name="login" onclick="AjaxManager.prepareLogin();">Login</button>
-											</form>
-										</div>
-										<div class="tools" id="prelogin_tools">
-											<p>New user? <a id="register_link" href="#" onclick="registerPopup();">Create an account!</a></p>
-										</div>
-										';
-					else echo	'<p class="response" id="We">Welcome ' . $_SESSION['username'] . ', press ENTER to play!</p>
-								<div class="tools">
-									<a id="logout_link" href="#" onclick="AjaxManager.prepareLogout();">Logout</a>
-									- 
-									<a id="delete_link" href="#" onclick="AjaxManager.prepareAccountDeletion();">Delete account</a>
-								</div>	
-								';
-			?>
+			<p class="response" id="We">Press ENTER to play!</p>
         </div>
 
 		<footer>
